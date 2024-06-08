@@ -24,18 +24,26 @@ const Products = ({ title,products }) => {
     }
     const ButtonGroup = ({ next, previous }) => {
         return (
-            <div className='flex justify-between items-center'>
-                <div className='text-xl font-bold text-slate-600'>{title}</div>
-                <div className='flex justify-center items-center gap-3 text-slate-600'>
-                    <button onClick={()=>previous()} className='w-[30px] h-[30px] flex justify-center items-center bg-slate-300 border border-slate-200'>
-                        <span><FiChevronLeft/></span>
-                    </button>
-                    <button onClick={()=>next()} className='w-[30px] h-[30px] flex justify-center items-center bg-slate-300 border border-slate-200'>
-                        <span><FiChevronLeft/></span>
-                    </button>
-                </div>
+          <div className="flex justify-between items-center">
+            <div className="text-xl font-bold text-text">{title}</div>
+            <div className="flex justify-center items-center gap-3 text-text">
+              <button
+                onClick={() => previous()}
+                className="w-[30px] h-[30px] flex justify-center items-center bg-slate-300 border border-slate-200">
+                <span>
+                  <FiChevronLeft />
+                </span>
+              </button>
+              <button
+                onClick={() => next()}
+                className="w-[30px] h-[30px] flex justify-center items-center bg-slate-300 border border-slate-200">
+                <span>
+                  <FiChevronLeft />
+                </span>
+              </button>
             </div>
-        )
+          </div>
+        );
     }
     return (
         <div className='flex gap-8 flex-col-reverse'>
@@ -52,18 +60,29 @@ const Products = ({ title,products }) => {
                 {
                     products.map((p, i) => {
                         return (
-                            <div key={i} className='flex flex-col justify-start gap-2'>
-                                {
-                                    p.map((pl,j) => <Link key={j} className='flex justify-start items-start' to='#'>
-                                        <img className='w-[110px] h-[110px]' src={pl.images[0]} alt="images" />
-                                        <div className='px-3 flex justify-start items-start gap-1 flex-col text-slate-600'>
-                                            <h2>{pl.name}</h2>
-                                            <span className='text-lg font-bold'>${pl.price}</span>
-                                        </div>
-                                    </Link>)
-                                }
-                            </div>
-                        )
+                          <div
+                            key={i}
+                            className="flex flex-col justify-start gap-2">
+                            {p.map((pl, j) => (
+                              <Link
+                                key={j}
+                                className="flex justify-start items-start"
+                                to="#">
+                                <img
+                                  className="w-[110px] h-[110px]"
+                                  src={pl.images[0]}
+                                  alt="images"
+                                />
+                                <div className="px-3 flex justify-start items-start gap-1 flex-col text-text">
+                                  <h2>{pl.name}</h2>
+                                  <span className="text-lg font-bold">
+                                    ${pl.price}
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        );
                     })
                 }
             </Carousel>

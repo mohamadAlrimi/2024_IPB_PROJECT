@@ -44,12 +44,12 @@ const AdminLogin = () => {
   }, [errorMessage, successMessage]);
   return (
     <div className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
-      <div className="w-[350px] text-[#d0d2d6] p-2">
-        <div className="bg-[#283046] p-4 rounded-md">
+      <div className="w-[350px] text-white  p-2">
+        <div className="bg-[#000000]  p-4 rounded-md">
           <div className="h-[70px] flex justify-center items-center">
             <div className="w-[180px] h-[50px]">
               {/* <img className='w-full h-full' src="http://localhost:3000/images/logo.png" alt="image" /> */}
-              <div className="text-3xl text-red-700">HANI ELHAMWI</div>
+              <div className="text-3xl text-white">MUHAMMED ELRIMI</div>
             </div>
           </div>
           <form onSubmit={submit}>
@@ -58,7 +58,7 @@ const AdminLogin = () => {
               <input
                 onChange={inputHandle}
                 value={state.email}
-                className="px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md text-[#d0d2d6] focus:border-indigo-500 overflow-hidden"
+                className="px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md text-white  focus:border-indigo-500 overflow-hidden"
                 type="text"
                 name="email"
                 placeholder="email"
@@ -71,7 +71,7 @@ const AdminLogin = () => {
               <input
                 onChange={inputHandle}
                 value={state.password}
-                className="px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md text-[#d0d2d6] focus:border-indigo-500 overflow-hidden"
+                className="px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md text-white  focus:border-indigo-500 overflow-hidden"
                 type="password"
                 name="password"
                 placeholder="password"

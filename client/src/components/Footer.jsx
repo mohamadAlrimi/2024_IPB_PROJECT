@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="w-3/12 lg:w-4/12 sm:w-full">
           <div className="flex flex-col gap-3">
             {/* <img className='w-[190px] h-[70x]' src="http://localhost:3000/images/logo.png" alt="logo" /> */}
-            <div className="text-3xl text-red-700">HANI ELHAMWI</div>
+            <div className="text-3xl text-red-700"></div>
             <ul className="flex flex-col gap-2 text-slate-600">
               <li>Address : Rangpur , Kuigram</li>
               <li>Phone : 5873458345</li>

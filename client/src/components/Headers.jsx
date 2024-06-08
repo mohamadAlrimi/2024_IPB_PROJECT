@@ -55,35 +55,28 @@ const Headers = () => {
     }
   }, [userInfo]);
   return (
-    <div className="w-full bg-white">
+    <div className=" w-full  bg-[#077187] pb-6">
       <div className="header-top bg-[#eeeeee] md-lg:hidden">
         <div className="w-[85%] lg:w-[90%] mx-auto">
           <div className="flex w-full justify-between items-center h-[50px] text-slate-500">
             <ul className="flex justify-start items-center gap-8">
-              <li className="flex relative justify-center items-center gap-2 text-sm after:absolute after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:-right-[16px]">
-                <span>
-                  <GrMail />
-                </span>
-                <span>sheikhfarid@gmail.com</span>
-              </li>
-              <span>Multi vendor ecommerce</span>
+              <div className="flex justify-center items-center gap-4">
+                <a href="#">
+                  <FaFacebookF />
+                </a>
+                <a href="#">
+                  <AiOutlineTwitter />
+                </a>
+                <a href="#">
+                  <FaLinkedinIn />
+                </a>
+                <a href="#">
+                  <AiFillGithub />
+                </a>
+              </div>
             </ul>
             <div>
               <div className="flex justify-center items-center gap-10">
-                <div className="flex justify-center items-center gap-4">
-                  <a href="#">
-                    <FaFacebookF />
-                  </a>
-                  <a href="#">
-                    <AiOutlineTwitter />
-                  </a>
-                  <a href="#">
-                    <FaLinkedinIn />
-                  </a>
-                  <a href="#">
-                    <AiFillGithub />
-                  </a>
-                </div>
                 <div className="flex group cursor-pointer text-slate-800 text-sm justify-center items-center gap-1 relative after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:-right-[16px] after:absolute before:absolute before:h-[18px] before:bg-[#afafaf] before:w-[1px] before:-left-[20px]">
                   <img src="http://localhost:3000/images/language.png" alt="" />
                   <span>
@@ -121,28 +114,14 @@ const Headers = () => {
       <div className="w-white">
         <div className="w-[85%] lg:w-[90%] mx-auto">
           <div className="h-[80px] md-lg:h-[100px] flex justify-between items-center flex-wrap">
-            <div className="md-lg:w-full w-3/12 md-lg:pt-4">
-              <div className="flex justify-between items-center">
-                <Link to="/">
-                  {/* <img src="http://localhost:3000/images/logo.png" alt="logo" /> */}
-                  <div className="text-3xl text-red-700">HANI ELHAMWI</div>
-                </Link>
-                <div
-                  className="justify-center items-center w-[30px] h-[30px] bg-white text-slate-600 border border-slate-600 rounded-sm cursor-pointer lg:hidden md-lg:flex xl:hidden hidden"
-                  onClick={() => setShowShidebar(false)}>
-                  <span>
-                    <FaList />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="md-lg:w-full w-9/12">
-              <div className="flex justify-between md-lg:justify-center items-center flex-wrap pl-8">
-                <ul className="flex justify-start items-start gap-8 text-sm font-bold uppercase md-lg:hidden">
+            <div className="md-lg:w-full w-full">
+              <div className=" md-lg:justify-center items-center flex-wrap pl-8">
+                <ul className="flex justify-center items-start gap-8 text-sm font-bold uppercase md-lg:hidden">
                   <li>
                     <Link
+                      to="/"
                       className={`p-2 block ${
-                        pathname === "/" ? "text-[#7fad39]" : "text-slate-600"
+                        pathname === "/" ? "text-[#7fad39]" : "text-text"
                       }`}>
                       Home
                     </Link>
@@ -151,74 +130,21 @@ const Headers = () => {
                     <Link
                       to="/shops"
                       className={`p-2 block ${
-                        pathname === "/shop"
-                          ? "text-[#7fad39]"
-                          : "text-slate-600"
+                        pathname === "/shop" ? "text-[#7fad39]" : "text-text"
                       }`}>
                       Shop
                     </Link>
                   </li>
                   <li>
                     <Link
+                      to="/chat"
                       className={`p-2 block ${
-                        pathname === "/blog"
-                          ? "text-[#7fad39]"
-                          : "text-slate-600"
+                        pathname === "/contact" ? "text-[#7fad39]" : "text-text"
                       }`}>
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`p-2 block ${
-                        pathname === "/about"
-                          ? "text-[#7fad39]"
-                          : "text-slate-600"
-                      }`}>
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`p-2 block ${
-                        pathname === "/contact"
-                          ? "text-[#7fad39]"
-                          : "text-slate-600"
-                      }`}>
-                      Contact
+                      Chat
                     </Link>
                   </li>
                 </ul>
-                <div className="flex md-lg:hidden justify-center items-center gap-5">
-                  <div className="flex justify-center gap-5">
-                    <div
-                      onClick={() =>
-                        navigate(userInfo ? "/dashboard/my-wishlist" : "/login")
-                      }
-                      className="relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#e2e2e2]">
-                      <span className="text-xl text-red-500">
-                        <AiFillHeart />
-                      </span>
-                      {wishlist_count !== 0 && (
-                        <div className="w-[20px] h-[20px] absolute bg-green-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px]">
-                          {wishlist_count}
-                        </div>
-                      )}
-                    </div>
-                    <div
-                      onClick={redirect_card_page}
-                      className="relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#e2e2e2]">
-                      <span className="text-xl text-orange-500">
-                        <AiFillShopping />
-                      </span>
-                      {card_product_count !== 0 && (
-                        <div className="w-[20px] h-[20px] absolute bg-green-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px]">
-                          {card_product_count}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -237,7 +163,7 @@ const Headers = () => {
           <div className="flex justify-start flex-col gap-6">
             <Link to="/">
               {/* <img src="http://localhost:3000/images/logo.png" alt="logo" /> */}
-              <div className="text-3xl text-red-700">HANI ELHAMWI</div>
+              <div className="text-3xl text-white">MUHAMMED ELRIMI</div>
             </Link>
             <div className="flex justify-star items-center gap-10">
               <div className="flex group cursor-pointer text-slate-800 text-sm justify-center items-center gap-1 relative after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:-right-[16px] after:absolute">
@@ -272,7 +198,7 @@ const Headers = () => {
               <li>
                 <Link
                   className={`py-2 block ${
-                    pathname === "/" ? "text-[#7fad39]" : "text-slate-600"
+                    pathname === "/" ? "text-[#7fad39]" : "text-text"
                   }`}>
                   Home
                 </Link>
@@ -280,7 +206,7 @@ const Headers = () => {
               <li>
                 <Link
                   className={`py-2 block ${
-                    pathname === "/shop" ? "text-[#7fad39]" : "text-slate-600"
+                    pathname === "/shop" ? "text-[#7fad39]" : "text-text"
                   }`}>
                   Shop
                 </Link>
@@ -288,7 +214,7 @@ const Headers = () => {
               <li>
                 <Link
                   className={`py-2 block ${
-                    pathname === "/blog" ? "text-[#7fad39]" : "text-slate-600"
+                    pathname === "/blog" ? "text-[#7fad39]" : "text-text"
                   }`}>
                   Blog
                 </Link>
@@ -296,7 +222,7 @@ const Headers = () => {
               <li>
                 <Link
                   className={`py-2 block ${
-                    pathname === "/about" ? "text-[#7fad39]" : "text-slate-600"
+                    pathname === "/about" ? "text-[#7fad39]" : "text-text"
                   }`}>
                   About
                 </Link>
@@ -304,9 +230,7 @@ const Headers = () => {
               <li>
                 <Link
                   className={`py-2 block ${
-                    pathname === "/contact"
-                      ? "text-[#7fad39]"
-                      : "text-slate-600"
+                    pathname === "/contact" ? "text-[#7fad39]" : "text-text"
                   }`}>
                   Contact
                 </Link>
@@ -357,7 +281,7 @@ const Headers = () => {
             <div className="bg-white relative">
               <div
                 onClick={() => setCategoryShow(!categoryShow)}
-                className="h-[50px] bg-violet-400 text-white flex justify-center md-lg:justify-between md-lg:px-6 items-center gap-3 font-bold text-md cursor-pointer">
+                className="h-[50px] bg-primary text-white flex justify-center md-lg:justify-between md-lg:px-6 items-center gap-3 font-bold text-md cursor-pointer">
                 <div className="flex justify-center items-center gap-3">
                   <span>
                     <FaList />
@@ -372,7 +296,7 @@ const Headers = () => {
                 className={`${
                   categoryShow ? "h-0" : "h-[400px]"
                 } overflow-hidden transition-all md-lg:relative duration-500 absolute z-[99999] bg-white w-full border-x`}>
-                <ul className="py-2 text-slate-600 font-medium h-full overflow-auto">
+                <ul className="py-2 text-text font-medium h-full overflow-auto">
                   {categorys.map((c, i) => {
                     return (
                       <li
@@ -397,12 +321,12 @@ const Headers = () => {
           </div>
           <div className="w-9/12 pl-8 md-lg:pl-0 md-lg:w-full">
             <div className="flex flex-wrap w-full justify-between items-center md-lg:gap-6">
-              <div className="w-8/12 md-lg:w-full">
+              <div className="w-full">
                 <div className="flex border h-[50px] items-center relative gap-5">
                   <div className="relative after:absolute after:h-[25px] after:w-[1px] after:bg-[#afafaf] after:-right-[15px] md:hidden">
                     <select
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-[150px] text-slate-600 font-semibold bg-transparent px-2 h-full outline-0 border-none"
+                      className="w-[150px] text-text font-semibold bg-transparent px-2 h-full outline-0 border-none"
                       name=""
                       id="">
                       <option value="">Select category</option>
@@ -423,13 +347,13 @@ const Headers = () => {
                   />
                   <button
                     onClick={search}
-                    className="bg-violet-400 right-0 absolute px-8 h-full font-semibold uppercase text-white">
+                    className="bg-primary right-0 absolute px-8 h-full font-semibold uppercase text-white">
                     Search
                   </button>
                 </div>
               </div>
               <div className="w-4/12 block md-lg:hidden pl-2 md-lg:w-full md-lg:pl-0">
-                <div className="w-full flex justify-end md-lg:justify-start gap-3 items-center">
+                {/* <div className="w-full flex justify-end md-lg:justify-start gap-3 items-center">
                   <div className="w-[48px] h-[48px] rounded-full flex bg-[#f5f5f5] justify-center items-center">
                     <span>
                       <IoIosCall />
@@ -441,7 +365,7 @@ const Headers = () => {
                     </h2>
                     <span className="text-sm">support 33/45 time</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

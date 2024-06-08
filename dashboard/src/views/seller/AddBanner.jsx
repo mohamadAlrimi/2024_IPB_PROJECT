@@ -62,66 +62,110 @@ const AddBanner = () => {
     }, [productId])
 
     return (
-        <div className='px-2 lg:px-7 pt-5 '>
-            <div className='w-full p-4  bg-[#283046] rounded-md'>
-                <div className='flex justify-between items-center pb-4'>
-                    <h1 className='text-[#d0d2d6] text-xl font-semibold'>Add banner</h1>
-                    <Link className='bg-blue-500 hover:shadow-blue-500/50 hover:shadow-lg text-white rounded-sm px-7 py-2 my-2 ' to='/seller/dashboard/banners'>Banners</Link>
+      <div className="px-2 lg:px-7 pt-5 ">
+        <div className="w-full p-4  bg-[#000000]  rounded-md">
+          <div className="flex justify-between items-center pb-4">
+            <h1 className="text-white  text-xl font-semibold">Add banner</h1>
+            <Link
+              className="bg-blue-500 hover:shadow-blue-500/50 hover:shadow-lg text-white rounded-sm px-7 py-2 my-2 "
+              to="/seller/dashboard/banners">
+              Banners
+            </Link>
+          </div>
+          {!banner && (
+            <div>
+              <form onSubmit={add}>
+                <div className="mb-6">
+                  <label
+                    className="flex justify-center items-center flex-col h-[180px] cursor-pointer border border-dashed hover:border-indigo-500 w-full text-white "
+                    htmlFor="image">
+                    <span className="text-4xl">
+                      <FaCloudUploadAlt />
+                    </span>
+                    <span>select banner image</span>
+                  </label>
+                  <input
+                    required
+                    onChange={imageHandle}
+                    className="hidden"
+                    type="file"
+                    id="image"
+                  />
                 </div>
-                {
-                    !banner && <div>
-                        <form onSubmit={add}>
-                            <div className='mb-6'>
-                                <label className='flex justify-center items-center flex-col h-[180px] cursor-pointer border border-dashed hover:border-indigo-500 w-full text-[#d0d2d6]' htmlFor="image">
-                                    <span className='text-4xl'><FaCloudUploadAlt /></span>
-                                    <span>select banner image</span>
-                                </label>
-                                <input required onChange={imageHandle} className='hidden' type="file" id='image' />
-                            </div>
-                            {
-                                imageShow && <div className='mb-4'>
-                                    <img className='w-full h-auto' src={imageShow} alt="image" />
-                                </div>
-                            }
-                            <button disabled={loader ? true : false} className='bg-blue-500 w-[190px] hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
-                                {
-                                    loader ? <PropagateLoader color='#fff' cssOverride={overrideStyle} /> : 'Add banner'
-                                }
-                            </button>
-                        </form>
-                    </div>
-                }
-                {
-                    banner && <div>
-                        {
-                            <div className='mb-4'>
-                                <img className='w-full h-auto' src={banner.banner} alt="image" />
-                            </div>
-                        }
-                        <form onSubmit={update}>
-                            <div className='mb-6'>
-                                <label className='flex justify-center items-center flex-col h-[180px] cursor-pointer border border-dashed hover:border-indigo-500 w-full text-[#d0d2d6]' htmlFor="image">
-                                    <span className='text-4xl'><FaCloudUploadAlt /></span>
-                                    <span>select banner image</span>
-                                </label>
-                                <input required onChange={imageHandle} className='hidden' type="file" id='image' />
-                            </div>
-                            {
-                                imageShow && <div className='mb-4'>
-                                    <img className='w-full h-auto' src={imageShow} alt="image" />
-                                </div>
-                            }
-                            <button disabled={loader ? true : false} className='bg-blue-500 w-[190px] hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
-                                {
-                                    loader ? <PropagateLoader color='#fff' cssOverride={overrideStyle} /> : 'update banner'
-                                }
-                            </button>
-                        </form>
-                    </div>
-                }
+                {imageShow && (
+                  <div className="mb-4">
+                    <img
+                      className="w-full h-auto"
+                      src={imageShow}
+                      alt="image"
+                    />
+                  </div>
+                )}
+                <button
+                  disabled={loader ? true : false}
+                  className="bg-blue-500 w-[190px] hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3">
+                  {loader ? (
+                    <PropagateLoader color="#fff" cssOverride={overrideStyle} />
+                  ) : (
+                    "Add banner"
+                  )}
+                </button>
+              </form>
             </div>
+          )}
+          {banner && (
+            <div>
+              {
+                <div className="mb-4">
+                  <img
+                    className="w-full h-auto"
+                    src={banner.banner}
+                    alt="image"
+                  />
+                </div>
+              }
+              <form onSubmit={update}>
+                <div className="mb-6">
+                  <label
+                    className="flex justify-center items-center flex-col h-[180px] cursor-pointer border border-dashed hover:border-indigo-500 w-full text-white "
+                    htmlFor="image">
+                    <span className="text-4xl">
+                      <FaCloudUploadAlt />
+                    </span>
+                    <span>select banner image</span>
+                  </label>
+                  <input
+                    required
+                    onChange={imageHandle}
+                    className="hidden"
+                    type="file"
+                    id="image"
+                  />
+                </div>
+                {imageShow && (
+                  <div className="mb-4">
+                    <img
+                      className="w-full h-auto"
+                      src={imageShow}
+                      alt="image"
+                    />
+                  </div>
+                )}
+                <button
+                  disabled={loader ? true : false}
+                  className="bg-blue-500 w-[190px] hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3">
+                  {loader ? (
+                    <PropagateLoader color="#fff" cssOverride={overrideStyle} />
+                  ) : (
+                    "update banner"
+                  )}
+                </button>
+              </form>
+            </div>
+          )}
         </div>
-    )
+      </div>
+    );
 }
 
 export default AddBanner
